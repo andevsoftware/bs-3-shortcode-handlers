@@ -2,15 +2,19 @@
 
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
-return function (ShortcodeInterface $s) {
+final class RowHandler
+{
 
-    $atts = array(
-        "xclass" => $s->getParameter('xclass', false)
-    );
+    function __invoke(ShortcodeInterface $shortcode)
+    {
 
-    $class = 'row';
-    $class .= ($atts['xclass']) ? ' ' . $atts['xclass'] : '';
+        $atts = array(
+            "xclass" => $shortcode->getParameter('xclass', false)
+        );
 
-    return sprintf('<div class="%s">%s</div>', trim($class), $s->getContent());
+        $class = 'row';
+        $class .= ($atts['xclass']) ? ' ' . $atts['xclass'] : '';
 
-};
+        return sprintf('<div class="%s">%s</div>', trim($class), $shortcode->getContent());
+    }
+}
