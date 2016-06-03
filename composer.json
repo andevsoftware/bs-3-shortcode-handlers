@@ -11,10 +11,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BS3ShortcodeHandlers\\": "src/BS3ShortCodeHandlers"
-        },
-        "psr-0": {
-            "AclAdapterMountTrait": "src/PhalconRest/Acl"
+            "BS3ShortcodeHandlers\\": "src/BS3ShortcodeHandlers"
         }
     }
 }
