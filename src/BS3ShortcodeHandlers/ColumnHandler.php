@@ -1,5 +1,7 @@
 <?php
 
+namespace BS3ShortcodeHandlers;
+
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 final class ColumnHandler
