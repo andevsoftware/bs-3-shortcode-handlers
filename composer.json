@@ -1,0 +1,20 @@
+{
+    "name": "olivierandriessen/bs-3-shortcode-handlers",
+    "authors": [
+        {
+            "name": "Olivier Andriessen",
+            "email": "olivierandriessen@gmail.com"
+        }
+    ],
+    "require": {
+        "thunderer/shortcode": "^0.6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "BS3ShortcodeHandlers\\": "src/BS3ShortCodeHandlers"
+        },
+        "psr-0": {
+            "AclAdapterMountTrait": "src/PhalconRest/Acl"
+        }
+    }
+}
