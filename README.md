@@ -5,7 +5,6 @@ Bootstrap 3 Shortcodes
 
 ### CSS
 * [Grid](#grid)
-* [Responsive Embeds](#responsive-embeds)
 * [Responsive utilities](#responsive-utilities)
 
 ### Components
