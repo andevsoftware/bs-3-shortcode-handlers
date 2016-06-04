@@ -74,20 +74,6 @@ xclass | Any extra classes you want to add | optional | any text | none
 
 * * *
 
-### Responsive Embeds
-	[embed-responsive ratio="16by9"] ... [/embed-responsive]
-
-Wrap ```<iframe>```, ```<embed>```, ```<video>```, and ```<object>``` elements to make them responsive.
-#### [responsive-embed] parameters
-Parameter | Description | Required | Values | Default
---- | --- | --- | --- | ---
-ratio | Maintain the aspect ratio of the embed | optional | 16by9, 4by3 | false
-xclass | Any extra classes you want to add | optional | any text | none
-
-[Bootstrap responsive embed documentation](http://getbootstrap.com/components/#responsive-embed)
-
-* * *
-
 ### Responsive Utilities
 	[responsive block="lg md" hidden="sn xs"] ... [/responsive]
 

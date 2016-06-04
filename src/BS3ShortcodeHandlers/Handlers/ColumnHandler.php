@@ -1,7 +1,9 @@
 <?php
 
-namespace BS3ShortcodeHandlers;
+namespace BS3ShortcodeHandlers\Handlers;
 
+use BS3ShortcodeHandlers\Helpers\FormatHelper;
+use BS3ShortcodeHandlers\Parsers\DataAttrParser;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 final class ColumnHandler
@@ -9,6 +11,9 @@ final class ColumnHandler
 
     public function __invoke(ShortcodeInterface $shortcode)
     {
+        $attributeParser = new DataAttrParser();
+        $formatHelper = new FormatHelper();
+
         $atts = array(
             "lg" => $shortcode->getParameter('lg', false),
             "md" => $shortcode->getParameter('md', false),
@@ -26,7 +31,8 @@ final class ColumnHandler
             "push_md" => $shortcode->getParameter('push_md', false),
             "push_sm" => $shortcode->getParameter('push_sm', false),
             "push_xs" => $shortcode->getParameter('push_xs', false),
-            "xclass" => $shortcode->getParameter('xclass', false)
+            "xclass" => $shortcode->getParameter('xclass', false),
+            "data" => $shortcode->getParameter('data', false)
         );
 
         $class = '';
@@ -48,6 +54,8 @@ final class ColumnHandler
         $class .= ($atts['push_xs'] || $atts['push_xs'] === "0") ? ' col-xs-push-' . $atts['push_xs'] : '';
         $class .= ($atts['xclass']) ? ' ' . $atts['xclass'] : '';
 
-        return sprintf('<div class="%s">%s</div>', trim($class), $shortcode->getContent());
+        $dataProps = $attributeParser( $atts['data'] );
+
+        return sprintf('<div class="%s"%s>%s</div>', $formatHelper->esc_attr($class), ( $dataProps ) ? ' ' . $dataProps : '', $shortcode->getContent());
     }
 }
