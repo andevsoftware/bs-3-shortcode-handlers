@@ -4,7 +4,7 @@ namespace BS3ShortcodeHandlers\Parsers;
 
 use BS3ShortcodeHandlers\Helpers\FormatHelper;
 
-final class DataAttrParser
+final class DataAttributesParser
 {
 
     public function __invoke($data)

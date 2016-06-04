@@ -3,7 +3,7 @@
 namespace BS3ShortcodeHandlers\Handlers;
 
 use BS3ShortcodeHandlers\Helpers\FormatHelper;
-use BS3ShortcodeHandlers\Parsers\DataAttrParser;
+use BS3ShortcodeHandlers\Parsers\DataAttributesParser;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 final class RowHandler
@@ -11,7 +11,7 @@ final class RowHandler
 
     function __invoke(ShortcodeInterface $shortcode)
     {
-        $attributeParser = new DataAttrParser();
+        $attributeParser = new DataAttributesParser();
         $formatHelper = new FormatHelper();
 
         $atts = array(

@@ -3,7 +3,7 @@
 namespace BS3ShortcodeHandlers\Handlers;
 
 use BS3ShortcodeHandlers\Helpers\FormatHelper;
-use BS3ShortcodeHandlers\Parsers\DataAttrParser;
+use BS3ShortcodeHandlers\Parsers\DataAttributesParser;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 final class ResponsiveHandler
@@ -11,7 +11,7 @@ final class ResponsiveHandler
 
     public function __invoke(ShortcodeInterface $shortcode)
     {
-        $attributeParser = new DataAttrParser();
+        $attributeParser = new DataAttributesParser();
         $formatHelper = new FormatHelper();
 
         $atts = array(
@@ -57,14 +57,11 @@ final class ResponsiveHandler
         }
         $class .= ($atts['xclass']) ? ' ' . $atts['xclass'] : '';
 
-        $dismissable = ($atts['dismissable']) ? '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' : '';
-
         $dataProps = $attributeParser($atts['data']);
 
-        return sprintf('<div class="%s"%s>%s%s</div>',
+        return sprintf('<div class="%s"%s>%s</div>',
             $formatHelper->esc_attr($class),
             ($dataProps) ? ' ' . $dataProps : '',
-            $dismissable,
             $shortcode->getContent());
     }
 }
